@@ -12,7 +12,7 @@ namespace MessageProcessor.Lib.Sinks
                 Directory.CreateDirectory(path);
 
             var serializer = factory.Get(message.DefaultSerializerType());
-            using (var fs = File.OpenWrite(Path.Combine(message.Url(), message.MessageId.ToString())))
+            using (var fs = File.OpenWrite(Path.Combine(path, message.MessageId.ToString())))
             using (var stream = serializer.Serialize(message))
             {
                 if (stream.Seek(0, SeekOrigin.Begin) != 0)
