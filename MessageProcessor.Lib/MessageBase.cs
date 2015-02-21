@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Serialization;
 using MessageProcessor.Lib.Interfaces;
 using Newtonsoft.Json;
 
@@ -13,13 +12,10 @@ namespace MessageProcessor.Lib
         public abstract MessageType MessageType { get; }
 
         [JsonIgnore]
-        [XmlIgnore]
         public abstract SerializerType DefaultSerializerType { get; }
         [JsonIgnore]
-        [XmlIgnore]
         public abstract MessageDestination Destination { get; }
         [JsonIgnore]
-        [XmlIgnore]
         public abstract string Location { get; }
 
         /// <summary>Default implementation: the message has no formatting and serialized AS IS.</summary>

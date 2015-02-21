@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using MessageProcessor.Lib.Interfaces;
 using MessageProcessor.Lib.Sinks;
@@ -45,9 +44,7 @@ namespace MessageProcessor.Lib
         public MessageProcessResult[] ProcessAll()
         {
             Task<MessageProcessResult>[] parallelJobs;
-            // 
             // Asynchronously process all messages in the queue:
-            // 
             lock (_messageQueue)
             {
                 parallelJobs = _messageQueue
@@ -57,6 +54,7 @@ namespace MessageProcessor.Lib
                 _messageQueue.Clear();
             }
 
+            // Wait for tasks to complete and return:
             Task.WaitAll(parallelJobs);
             return parallelJobs.Select(_ => _.Result).ToArray();
         }
