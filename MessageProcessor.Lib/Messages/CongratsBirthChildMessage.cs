@@ -7,19 +7,12 @@ namespace MessageProcessor.Lib.Messages
 
     public class CongratsBirthChildMessage : MessageBase
     {
-        public override SerializerType DefaultSerializerType
-        {
-            get { return SerializerType.Xml; }
-        }
-
-        public override string Url
-        {
-            get { return "BabyBirth"; }
-        }
-
         public Gender Gender { get; set; }
         public DateTime BabyBirthDay { get; set; }
-        public override MessageDestination Destination { get { return MessageDestination.Disk; } }
+
+        public override SerializerType DefaultSerializerType() { return SerializerType.Xml; }
+        public override string Url() { return "BabyBirth"; }
+        public override MessageDestination Destination() { return MessageDestination.Disk; }
 
         public override object Formatted()
         {

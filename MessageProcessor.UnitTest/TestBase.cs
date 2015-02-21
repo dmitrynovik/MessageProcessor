@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using MessageProcessor.Lib;
 using MessageProcessor.Lib.Interfaces;
@@ -22,6 +23,20 @@ namespace MessageProcessor.UnitTest
             MessageQueue.Enqueue(message);
             MessageQueue.ProcessAll();
             return message;
+        }
+
+        protected string CreateAndSerializeMessage()
+        {
+            var message = CreateMessage();
+            using (var stream = SerializerFactory.Get(message.DefaultSerializerType()).Serialize(message))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    var text = reader.ReadToEnd();
+                    Console.WriteLine(text);
+                    return text;
+                }
+            }
         }
 
         protected abstract IMessage CreateMessage();

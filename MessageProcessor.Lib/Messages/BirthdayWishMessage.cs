@@ -7,13 +7,11 @@ namespace MessageProcessor.Lib.Messages
         public DateTime BirthDate { get; set; }
         public string Gift { get; set; }
 
-        public override SerializerType DefaultSerializerType { get { return SerializerType.Json; } }
-        public override string Url { get { return "Birthdays"; } }
-        public override MessageDestination Destination { get { return MessageDestination.Disk; } }
-        public override MessageType MessageType
-        {
-            get { return MessageType.BirthdayWish; }
-        }
+        public override MessageType MessageType { get { return MessageType.BirthdayWish; } }
+
+        public override SerializerType DefaultSerializerType() { return SerializerType.Json; }
+        public override string Url() { return "Birthdays"; }
+        public override MessageDestination Destination() { return MessageDestination.Disk; }
 
         public override object Formatted()
         {

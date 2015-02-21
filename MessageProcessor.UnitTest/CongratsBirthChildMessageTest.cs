@@ -12,19 +12,11 @@ namespace MessageProcessor.UnitTest
         [Test]
         public void Message_Is_Correctly_Serialized()
         {
-            var message = CreateMessage();
-            using (var stream = SerializerFactory.Get(message.DefaultSerializerType).Serialize(message))
-            {
-                using (var reader = new StreamReader(stream))
-                {
-                    var text = reader.ReadToEnd();
-                    Console.WriteLine(text);
-                    Assert.IsTrue(text.Contains("<Text>Surprise!</Text>"));
-                    Assert.IsTrue(text.Contains("<Name>SgBvAGgAbgAgAFMAbQBpAHQAaAA=</Name>"));
-                    Assert.IsTrue(text.Contains("<Gender>Male</Gender>"));
-                    Assert.IsTrue(text.Contains("<BabyBirthDay>05 Dec 2014</BabyBirthDay>"));
-                }
-            }
+            var text = CreateAndSerializeMessage();
+            Assert.IsTrue(text.Contains("<Text>Surprise!</Text>"));
+            Assert.IsTrue(text.Contains("<Name>SgBvAGgAbgAgAFMAbQBpAHQAaAA=</Name>"));
+            Assert.IsTrue(text.Contains("<Gender>Male</Gender>"));
+            Assert.IsTrue(text.Contains("<BabyBirthDay>05 Dec 2014</BabyBirthDay>"));
         }
 
         [Test]

@@ -11,12 +11,9 @@ namespace MessageProcessor.Lib
         public string Text { get; set; }
         public abstract MessageType MessageType { get; }
 
-        [JsonIgnore]
-        public abstract SerializerType DefaultSerializerType { get; }
-        [JsonIgnore]
-        public abstract MessageDestination Destination { get; }
-        [JsonIgnore]
-        public abstract string Url { get; }
+        public abstract SerializerType DefaultSerializerType();
+        public abstract MessageDestination Destination();
+        public abstract string Url();
 
         /// <summary>Default implementation: the message has no formatting and serialized AS IS. To be overriden in derived classes.</summary>
         public virtual object Formatted() { return this; }

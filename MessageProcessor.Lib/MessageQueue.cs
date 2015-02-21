@@ -64,7 +64,7 @@ namespace MessageProcessor.Lib
         {
             try
             {
-                switch (message.Destination)
+                switch (message.Destination())
                 {
                     case MessageDestination.Disk:
                         new FileSystemSink().Write(_serializerFactory, message);
