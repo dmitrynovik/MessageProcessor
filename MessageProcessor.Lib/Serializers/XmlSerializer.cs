@@ -8,9 +8,12 @@ namespace MessageProcessor.Lib.Serializers
         public Stream Serialize(IMessage message)
         {
             var stream = new MemoryStream();
-
-            var serializer = new System.Xml.Serialization.XmlSerializer(message.GetType());
-            serializer.Serialize(stream, message == null ? null : message.Formatted());
+            if (message != null)
+            {
+                var payload = message.Formatted();
+                var serializer = new System.Xml.Serialization.XmlSerializer(payload.GetType());
+                serializer.Serialize(stream, payload);
+            }
             return stream;
         }
     }

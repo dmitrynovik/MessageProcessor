@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BirthdayWishMessageTest.cs" />
+    <Compile Include="CongratsBirthChildMessageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>

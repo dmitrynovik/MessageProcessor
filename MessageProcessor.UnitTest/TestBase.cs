@@ -16,7 +16,17 @@ namespace MessageProcessor.UnitTest
             MessageQueue = new MessageQueue(SerializerFactory);
         }
 
-        protected static void AssertFileWritten(IMessage message, string path)
+        protected IMessage ProcessMessage()
+        {
+            var message = CreateMessage();
+            MessageQueue.Enqueue(message);
+            MessageQueue.ProcessAll();
+            return message;
+        }
+
+        protected abstract IMessage CreateMessage();
+
+        protected static void AssertMessageWrittenToFile(IMessage message, string path)
         {
             Assert.IsTrue(Directory.Exists(path));
             Assert.AreEqual(new DirectoryInfo(path).GetFiles().Count(f => f.Name == message.MessageId.ToString()), 1);

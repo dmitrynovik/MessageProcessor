@@ -13,7 +13,7 @@ namespace MessageProcessor.Lib
                 case SerializerType.Json:
                     return new JsonSerializer();
                 case SerializerType.Xml:
-                    return new JsonSerializer();
+                    return new XmlSerializer();
                 default:
                     throw new ArgumentException(string.Format("Unknown serializer type: {0}", type), "type");
             }
