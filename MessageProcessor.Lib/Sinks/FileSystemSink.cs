@@ -3,9 +3,9 @@ using MessageProcessor.Lib.Interfaces;
 
 namespace MessageProcessor.Lib.Sinks
 {
-    public class FileSystemSink
+    public class FileSystemSink : ISink
     {
-        public void WriteToFile(SerializerFactory factory, IMessage message)
+        public void Write(SerializerFactory factory, IMessage message)
         {
             if (!Directory.Exists(message.Url))
                 Directory.CreateDirectory(message.Url);

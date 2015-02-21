@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IMessage.cs" />
     <Compile Include="Interfaces\ISerializer.cs" />
+    <Compile Include="Interfaces\ISink.cs" />
     <Compile Include="MessageBase.cs" />
     <Compile Include="MessageDestination.cs" />
     <Compile Include="MessageQueue.cs" />

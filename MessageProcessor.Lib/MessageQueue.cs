@@ -67,7 +67,7 @@ namespace MessageProcessor.Lib
                 switch (message.Destination)
                 {
                     case MessageDestination.Disk:
-                        new FileSystemSink().WriteToFile(_serializerFactory, message);
+                        new FileSystemSink().Write(_serializerFactory, message);
                         return new MessageProcessResult() { Message = message, MessageStatus = MessageProcessResult.Status.Success };
                     default:
                         return new MessageProcessResult() { Message = message, MessageStatus = MessageProcessResult.Status.UnknownMessageType };
