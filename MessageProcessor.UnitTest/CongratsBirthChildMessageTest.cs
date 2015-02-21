@@ -19,8 +19,10 @@ namespace MessageProcessor.UnitTest
                 {
                     var text = reader.ReadToEnd();
                     Console.WriteLine(text);
-                    Assert.IsTrue(text.Contains("\"Text\": \"Surprise!\""));
-                    Assert.IsTrue(text.Contains("\"BirthDate\": : \"05 Dec 2014\""));
+                    Assert.IsTrue(text.Contains("<Text>Surprise!</Text>"));
+                    Assert.IsTrue(text.Contains("<Name>SgBvAGgAbgAgAFMAbQBpAHQAaAA=</Name>"));
+                    Assert.IsTrue(text.Contains("<Gender>Male</Gender>"));
+                    Assert.IsTrue(text.Contains("<BabyBirthDay>05 Dec 2014</BabyBirthDay>"));
                 }
             }
         }
