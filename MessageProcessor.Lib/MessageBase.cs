@@ -16,9 +16,9 @@ namespace MessageProcessor.Lib
         [JsonIgnore]
         public abstract MessageDestination Destination { get; }
         [JsonIgnore]
-        public abstract string Location { get; }
+        public abstract string Url { get; }
 
-        /// <summary>Default implementation: the message has no formatting and serialized AS IS.</summary>
+        /// <summary>Default implementation: the message has no formatting and serialized AS IS. To be overriden in derived classes.</summary>
         public virtual object Formatted() { return this; }
    }
 }

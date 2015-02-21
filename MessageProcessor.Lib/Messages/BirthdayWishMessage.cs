@@ -8,8 +8,8 @@ namespace MessageProcessor.Lib.Messages
         public string Gift { get; set; }
 
         public override SerializerType DefaultSerializerType { get { return SerializerType.Json; } }
-        public override string Location { get { return "Birthdays"; } }
-        public override MessageDestination Destination { get { return MessageDestination.File; } }
+        public override string Url { get { return "Birthdays"; } }
+        public override MessageDestination Destination { get { return MessageDestination.Disk; } }
         public override MessageType MessageType
         {
             get { return MessageType.BirthdayWish; }

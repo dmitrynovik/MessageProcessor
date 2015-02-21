@@ -11,7 +11,7 @@ namespace MessageProcessor.Lib.Interfaces
 
         SerializerType DefaultSerializerType { get; }
         MessageDestination Destination { get; }
-        string Location { get; }
+        string Url { get; }
 
         /// <summary>Formats message when processing.</summary>
         /// <returns>Formatted message used in message processing.</returns>

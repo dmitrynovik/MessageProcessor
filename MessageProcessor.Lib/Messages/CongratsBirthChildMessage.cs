@@ -12,14 +12,14 @@ namespace MessageProcessor.Lib.Messages
             get { return SerializerType.Xml; }
         }
 
-        public override string Location
+        public override string Url
         {
             get { return "BabyBirth"; }
         }
 
         public Gender Gender { get; set; }
         public DateTime BabyBirthDay { get; set; }
-        public override MessageDestination Destination { get { return MessageDestination.File; } }
+        public override MessageDestination Destination { get { return MessageDestination.Disk; } }
 
         public override object Formatted()
         {

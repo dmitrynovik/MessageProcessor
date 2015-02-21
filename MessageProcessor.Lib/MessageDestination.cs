@@ -2,6 +2,7 @@
 {
     public enum MessageDestination
     {
-        File,
+        // At the moment all messages are written to disk, but who knows what future holds
+        Disk,
     }
 }
